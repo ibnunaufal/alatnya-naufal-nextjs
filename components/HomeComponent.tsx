@@ -93,6 +93,21 @@ export default function HomeComponent() {
     setSearchedMenu(filteredMenu);
   }, []);
 
+  function sortMenu(sortOption: string) {
+    let sortedMenu = [...searchedMenu];
+    if (sortOption === "az") {
+      sortedMenu.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortOption === "za") {
+      sortedMenu.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (sortOption === "old") {
+      sortedMenu.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    } else if (sortOption === "new") {
+      sortedMenu.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    }
+    setSearchedMenu(sortedMenu);
+    setSortOption(sortOption);
+  }
+
   return (
     // mobile view
     <div className="flex flex-col items-center justify-center py-2">
@@ -125,7 +140,9 @@ export default function HomeComponent() {
             }}
           />
           <Select
-            onValueChange={(value) => setSortOption(value)}
+            onValueChange={(value) => {
+              sortMenu(value);
+            }}
             defaultValue="az"
           >
             <SelectTrigger className="w-auto">
