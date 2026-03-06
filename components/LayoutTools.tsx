@@ -8,7 +8,8 @@ interface LayoutProps {
 
 export const LayoutTools: React.FC<LayoutProps> = ({ children, title }) => {
   return (
-    <div className="flex flex-col min-h-screen">
+    // mobile layout
+    <div className="">
       <div className="sticky top-0 z-50">
         <HeaderComponent title={title} />
       </div>

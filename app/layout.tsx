@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sourceCodePro.variable} ${spaceGrotesk.variable}`}>
       <body
-        className="antialiased"
+        className="antialiased max-w-lg mx-4 my-0 flex flex-col md:flex-row lg:mx-auto"
       >
         {children}
       </body>

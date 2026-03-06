@@ -11,11 +11,14 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { ChevronLeft, Menu } from "lucide-react";
 
 export default function HeaderComponent({ title }: { title: string }) {
   return (
-    <div className="w-full h-16 bg-primary text-white flex items-center justify-between px-4">
+    <div className="w-full h-16 bg-primary flex justify-between items-center px-4">
+      <Button size="icon">
+        <ChevronLeft className="h-5 w-5" />
+      </Button>
       <h1 className="text-2xl font-bold">{title}</h1>
       <Sheet>
         <SheetTrigger asChild>
